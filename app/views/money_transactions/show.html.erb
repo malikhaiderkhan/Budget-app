@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @money_transaction %>
+
+<div>
+  <%= link_to "Edit this money transaction", edit_money_transaction_path(@money_transaction) %> |
+  <%= link_to "Back to money transactions", money_transactions_path %>
+
+  <%= button_to "Destroy this money transaction", @money_transaction, method: :delete %>
+</div>
