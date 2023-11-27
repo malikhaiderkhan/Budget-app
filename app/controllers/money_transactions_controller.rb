@@ -1,5 +1,5 @@
 class MoneyTransactionsController < ApplicationController
-  before_action :set_money_transaction, only: %i[ show edit update destroy ]
+  before_action :set_money_transaction, only: %i[show edit update destroy]
 
   # GET /money_transactions or /money_transactions.json
   def index
@@ -7,8 +7,7 @@ class MoneyTransactionsController < ApplicationController
   end
 
   # GET /money_transactions/1 or /money_transactions/1.json
-  def show
-  end
+  def show; end
 
   # GET /money_transactions/new
   def new
@@ -16,8 +15,7 @@ class MoneyTransactionsController < ApplicationController
   end
 
   # GET /money_transactions/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /money_transactions or /money_transactions.json
   def create
@@ -25,7 +23,9 @@ class MoneyTransactionsController < ApplicationController
 
     respond_to do |format|
       if @money_transaction.save
-        format.html { redirect_to money_transaction_url(@money_transaction), notice: "Money transaction was successfully created." }
+        format.html do
+          redirect_to money_transaction_url(@money_transaction), notice: 'Money transaction was successfully created.'
+        end
         format.json { render :show, status: :created, location: @money_transaction }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,9 @@ class MoneyTransactionsController < ApplicationController
   def update
     respond_to do |format|
       if @money_transaction.update(money_transaction_params)
-        format.html { redirect_to money_transaction_url(@money_transaction), notice: "Money transaction was successfully updated." }
+        format.html do
+          redirect_to money_transaction_url(@money_transaction), notice: 'Money transaction was successfully updated.'
+        end
         format.json { render :show, status: :ok, location: @money_transaction }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,19 +54,20 @@ class MoneyTransactionsController < ApplicationController
     @money_transaction.destroy!
 
     respond_to do |format|
-      format.html { redirect_to money_transactions_url, notice: "Money transaction was successfully destroyed." }
+      format.html { redirect_to money_transactions_url, notice: 'Money transaction was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_money_transaction
-      @money_transaction = MoneyTransaction.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def money_transaction_params
-      params.require(:money_transaction).permit(:name, :amount, :user_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_money_transaction
+    @money_transaction = MoneyTransaction.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def money_transaction_params
+    params.require(:money_transaction).permit(:name, :amount, :user_id)
+  end
 end
