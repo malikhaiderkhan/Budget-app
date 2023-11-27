@@ -3,7 +3,7 @@ class CreateMoneyTransactions < ActiveRecord::Migration[7.1]
     create_table :money_transactions do |t|
       t.string :name
       t.decimal :amount
-      t.references :user, null: false, foreign_key: true
+      t.references :author, null: false, foreign_key: { to_table: :users }
 
       t.timestamps
     end
