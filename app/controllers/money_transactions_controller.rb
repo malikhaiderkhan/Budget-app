@@ -19,7 +19,7 @@ class MoneyTransactionsController < ApplicationController
 
   # POST /money_transactions or /money_transactions.json
   def create
-    @money_transaction = MoneyTransaction.new(money_transaction_params)
+    @money_transaction = current_user.money_transactions.new(money_transaction_params)
 
     respond_to do |format|
       if @money_transaction.save
@@ -68,6 +68,6 @@ class MoneyTransactionsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def money_transaction_params
-    params.require(:money_transaction).permit(:name, :amount, :user_id)
+    params.require(:money_transaction).permit(:name, :amount, :author_id)
   end
 end

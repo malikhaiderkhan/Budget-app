@@ -1,9 +1,12 @@
 class CategoryTransactionsController < ApplicationController
-  before_action :set_category_transaction, only: %i[show edit update destroy]
+  before_action :set_category
+  # before_action :set_category_transaction, only: %i[show edit update destroy]
 
   # GET /category_transactions or /category_transactions.json
   def index
-    @category_transactions = CategoryTransaction.all
+    @transactions = @category.money_transactions.order(created_at: :desc)
+    @total_amount = @transactions.sum(:amount)
+    # @category_transactions = CategoryTransaction.all
   end
 
   # GET /category_transactions/1 or /category_transactions/1.json

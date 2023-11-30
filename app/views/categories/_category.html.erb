@@ -1,5 +1,10 @@
 <div id="<%= dom_id category %>">
   <p>
+    <strong>Total Amount:</strong>
+    <%= category.money_transactions.sum(:amount) %>
+  </p>
+
+  <p>
     <strong>Name:</strong>
     <%= category.name %>
   </p>
@@ -8,5 +13,7 @@
     <strong>Icon:</strong>
     <%= category.icon %>
   </p>
+
+  <%= link_to "Show transactions", money_transactions_path(category) %>
 
 </div>
