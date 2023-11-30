@@ -14,24 +14,23 @@
  *= require_self
  */
 
- body {
+ /* body {
     margin: 0; /* Remove default margin from the top */
-    padding: 0;
-    height: 100vh;
-  }
+    /* padding: 0;
+  } */
 
   /* Set margin-top to 0 for the navbar */
-  .navbar {
+  /* .navbar {
     margin-top: 0;
-  }
+  } */
 
   /* Set width to 100% for the navbar */
-  .navbar-expand-lg {
+  /* .navbar-expand-lg {
     width: 100%;
-  }
+  } */
 
   /* Add a custom class to the logout button and remove background color and border */
-  .logout-btn {
+  /* .logout-btn {
     background-color: transparent !important;
     border: none !important;
-  }
+  } */

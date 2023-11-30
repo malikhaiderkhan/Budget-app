@@ -1,19 +1,24 @@
-<div id="<%= dom_id category %>">
+<%= link_to money_transactions_path(category), class: 'text-decoration-none text-secondary' do %>
+<div id="<%= dom_id category %>" class="border p-3 mb-3">
+<div class="d-flex justify-content-between">
+
   <p>
-    <strong>Total Amount:</strong>
-    <%= category.money_transactions.sum(:amount) %>
+    <% if category.icon.attached? %>
+    <%= image_tag category.icon.variant(resize: "100x100") %>
+    <% else %>
+      <span>No Icon Available</span>
+    <% end %>
   </p>
 
   <p>
-    <strong>Name:</strong>
     <%= category.name %>
   </p>
 
   <p>
-    <strong>Icon:</strong>
-    <%= category.icon %>
+    <strong>Amount:</strong>
+    <%= category.money_transactions.sum(:amount) %>
   </p>
-
-  <%= link_to "Show transactions", money_transactions_path(category) %>
+  </div>
 
 </div>
+<% end %>

@@ -1,26 +1,27 @@
 <div class="navbar navbar-expand-lg bg-primary">
-  <div class="container">
+  <div class="container-fluid">
     <a class="navbar-brand" href="/">
       <%= image_tag('back.png', width: '30', height: '15') %>
     </a>
-    <h4 class="text-light text-center flex-1">CATEGORIES</h4>
+    <h5 class="text-light text-center flex-1">CATEGORIES</h5>
     <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "text-white logout-btn" %>
   </div>
 </div>
 
-<div class="container mt-4">
+<div class="container-fluid mt-4">
   <div class="row">
     <div class="col">
       <p style="color: green"><%= notice %></p>
-      <h1>Categories</h1>
 
-      <div id="categories">
+      <div class="p-3 container-lg justify-content-center col-lg-6 d-block">
         <% @categories.each do |category| %>
           <%= render partial: 'category', locals: { category: category } %>
         <% end %>
       </div>
 
-      <%= link_to "New category", new_category_path, class: "btn btn-primary mt-3" %>
+      <div class="fixed-bottom bg-success p-3 container-lg justify-content-center col-lg-6">
+      <%= link_to "New Category", new_category_path, class: "d-block w-100 p-5 bg-success border border-2 text-lg font-weight-medium border-white text-center text-white text-decoration-none" %>
+      </div>
     </div>
   </div>
 </div>
