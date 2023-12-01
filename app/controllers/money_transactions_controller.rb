@@ -23,7 +23,7 @@ class MoneyTransactionsController < ApplicationController
 
     if params[:money_transaction][:category_id].present?
       category = current_user.categories.find(params[:money_transaction][:category_id])
-      @money_transaction.categories << category
+      @money_transaction.category = category
     end
 
     respond_to do |format|
