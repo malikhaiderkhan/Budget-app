@@ -8,12 +8,18 @@
   </div>
 </div>
 
-<div id="money_transactions">
+<div class="container-lg justify-content-center col-lg-6 d-block">
+<div class="d-flex justify-content-between my-1 py-1">
+  <p class="font-weight-medium text-secondary text-xl fs-4">Total Transactions</p>
+  <p class="text-center font-weight-bold text-xl fs-4">
+    <%= number_to_currency(@money_transactions.sum(:amount), unit: '$') %>
+  </p>
+</div>
+</div>
+
+<div class="p-3 container-lg justify-content-center col-lg-6 d-block">
   <% @money_transactions.each do |money_transaction| %>
     <%= render money_transaction %>
-    <p>
-      <%= link_to "Show this money transaction", money_transaction %>
-    </p>
   <% end %>
 </div>
 
