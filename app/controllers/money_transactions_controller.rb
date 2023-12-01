@@ -3,7 +3,7 @@ class MoneyTransactionsController < ApplicationController
 
   # GET /money_transactions or /money_transactions.json
   def index
-    @money_transactions = MoneyTransaction.all
+    @money_transactions = MoneyTransaction.order(created_at: :desc)
   end
 
   # GET /money_transactions/1 or /money_transactions/1.json

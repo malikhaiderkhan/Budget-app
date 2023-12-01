@@ -15,8 +15,7 @@
   </p>
 
   <p>
-    <strong>$</strong>
-    <%= category.money_transactions.sum(:amount) %>
+    <%= number_to_currency(category.money_transactions.sum(:amount), unit: '$') %>
   </p>
   </div>
 
