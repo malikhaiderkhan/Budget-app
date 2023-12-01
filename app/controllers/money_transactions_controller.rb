@@ -21,10 +21,15 @@ class MoneyTransactionsController < ApplicationController
   def create
     @money_transaction = current_user.money_transactions.new(money_transaction_params)
 
+    if params[:money_transaction][:category_id].present?
+      category = current_user.categories.find(params[:money_transaction][:category_id])
+      @money_transaction.categories << category
+    end
+
     respond_to do |format|
       if @money_transaction.save
         format.html do
-          redirect_to money_transaction_url(@money_transaction), notice: 'Money transaction was successfully created.'
+          redirect_to money_transactions_url, notice: 'Money transaction was successfully created.'
         end
         format.json { render :show, status: :created, location: @money_transaction }
       else
