@@ -1,4 +1,4 @@
-<%= link_to money_transactions_path(category), class: 'text-decoration-none text-secondary' do %>
+<%= link_to money_transactions_path(category), class: 'text-decoration-none' do %>
 <div id="<%= dom_id category %>" class="border p-3 mb-3">
 <div class="d-flex justify-content-between">
 
@@ -10,11 +10,11 @@
     <% end %>
   </p>
 
-  <p>
+  <p class= "text-secondary">
     <%= category.name %>
   </p>
 
-  <p>
+  <p class= "text-dark">
     <%= number_to_currency(category.money_transactions.sum(:amount), unit: '$') %>
   </p>
   </div>
