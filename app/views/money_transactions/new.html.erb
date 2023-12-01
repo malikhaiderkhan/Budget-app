@@ -1,9 +1,17 @@
-<h1>New money transaction</h1>
+<div class="navbar navbar-expand-lg bg-primary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/money_transactions">
+      <%= image_tag('back.png', width: '30', height: '15') %>
+    </a>
+    <h5 class="text-light text-center flex-1 pt-2">NEW TRANSACTION</h5>
+    <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "text-white logout-btn" %>
+  </div>
+</div>
 
 <%= render "form", money_transaction: @money_transaction %>
 
 <br>
 
-<div>
-  <%= link_to "Back to money transactions", money_transactions_path %>
+<div class="col-lg-6 col-md-12 mx-auto flex flex-column h-100 text-center">
+  <%= link_to "Back to money transactions", money_transactions_path, class: "text-secondary text-center w-100 p-3 rounded text-decoration-none" %>
 </div>
