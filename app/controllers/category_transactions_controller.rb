@@ -6,8 +6,16 @@ class CategoryTransactionsController < ApplicationController
   def index
     @transactions = @category.money_transactions.order(created_at: :desc)
     @total_amount = @transactions.sum(:amount)
-    # @category_transactions = CategoryTransaction.all
+    # Retrieve all categories for the current user
+    @categories = current_user.categories.includes(:money_transactions)
+    # Calculate total amount for each category
+    @category_total_amounts = {}
+    @categories.each do |category|
+      total_amount = category.money_transactions.sum(:amount)
+      @category_total_amounts[category.id] = total_amount
+    end
   end
+end
 
   # GET /category_transactions/1 or /category_transactions/1.json
   def show; end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_30_205802) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_02_194637) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -66,7 +66,9 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_30_205802) do
     t.bigint "author_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "category_id", default: 0
     t.index ["author_id"], name: "index_money_transactions_on_author_id"
+    t.index ["category_id"], name: "index_money_transactions_on_category_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -87,5 +89,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_30_205802) do
   add_foreign_key "categories", "users"
   add_foreign_key "category_transactions", "categories"
   add_foreign_key "category_transactions", "money_transactions"
+  add_foreign_key "money_transactions", "categories"
   add_foreign_key "money_transactions", "users", column: "author_id"
 end
