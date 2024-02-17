@@ -1,33 +1,27 @@
-<div class="flex flex-col h-screen">
-  <div class="bg-sky-700 p-4 flex items-center">
-    <a href="/">
-      <%= image_tag('back.png', width: '30', height: '6') %>
-    </a>  
-    <h2 class="text-light text-center text-white flex-1">CATEGORIES</h2>
-      <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "text-white" %>
+<div class="navbar navbar-expand-lg bg-primary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">
+      <%= image_tag('back.png', width: '30', height: '15') %>
+    </a>
+    <h5 class="text-light text-center flex-1 pt-2">CATEGORIES</h5>
+    <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "text-white logout-btn" %>
   </div>
-  <div class="lg:w-2/5  w-100 lg:mx-auto flex flex-col border p-2 h-full">
-    <p style="color: green" class="text-center"><%= notice %></p>
-    <div class="border m-2 p-5 mx-3 ">
-      <div class=" flex items-center ">
-        <p class="font-medium text-gray-500 text-xl ">MONTHLY BUDGET</p>
-        <p class="text-center font-bold text-xl  ml-auto">$<%=  @budget %> </p>
+</div>
+
+<div class="container-fluid mt-4">
+  <div class="row">
+    <div class="col">
+      <p style="color: green"><%= notice %></p>
+
+      <div class="p-3 container-lg justify-content-center col-lg-6 d-block">
+        <% @categories.each do |category| %>
+          <%= render partial: 'category', locals: { category: category } %>
+        <% end %>
       </div>
-      <% if @over_budget %>
-      <p class="mt-1 text-red-600 font-medium">You are <b>$<%=  @diffrence %></b> over your budget</p>
-      <% end %>
-    </div>
 
-    <div id="categories">
-      <% @categories.each do |category| %>
-        <a href="<%= category_payments_path(category) %>">
-        <%= render category, total: @total, over_budget: @over_budget %>
-      </a>
-      <% end %>
+      <div class="fixed-bottom bg-success p-3 container-lg justify-content-center col-lg-6">
+      <%= link_to "New Category", new_category_path, class: "d-block w-100 p-5 bg-success border border-2 text-lg font-weight-medium border-white text-center text-white text-decoration-none" %>
+      </div>
     </div>
-
-   <div class="fixed bottom-0 left-0 right-0 bg-green-600 p-5 lg:w-2/5 mx-auto">
-    <%= link_to "Add New Category", new_category_path, class: "block w-full p-5 bg-green-600 border border-2 text-lg font-medium border-white text-center text-white" %>
-   </div>
-  <div>
+  </div>
 </div>

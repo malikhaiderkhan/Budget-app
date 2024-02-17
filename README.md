@@ -4,7 +4,6 @@
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
-- [🚀 Live Demo](#live-demo)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
 - [👥 Authors](#authors)
@@ -42,7 +41,7 @@
 ## 🚀 Live Demo <a name="live-demo"></a>
 
 - [Live Demo Link](https://budgetly-ub3z.onrender.com)
-- [Presentation Link](https://www.loom.com/share/5ee561243c3549bc8c12a7dbc200c8c9?sid=569d50ef-dc05-43d0-8cbd-26f770fa3576)
+- [Presentation Link](https://www.loom.com/share/5ee561243c3549bc8c12a7dbc200c8c9?sid=15a0d81d-7598-4ffd-8d84-46c73d5259cd)
 
 <!-- GETTING STARTED -->
 
@@ -100,7 +99,7 @@ If you like this project kindly give stars.
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-I would like to thank microverse for this project and regoire Vella for Original design idea Gregoire Vella on Behance.
+I would like to thank microverse for this project and regoire Vella for Original design idea [Gregoire Vella on Behance](https://www.behance.net/gregoirevella).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
