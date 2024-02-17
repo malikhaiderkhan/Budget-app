@@ -1,23 +1,12 @@
-<%= link_to money_transactions_path(category), class: 'text-decoration-none' do %>
-<div id="<%= dom_id category %>" class="border p-3 mb-3">
-<div class="d-flex justify-content-between">
+<div id="<%= dom_id category %>" class="flex border m-2  items-center p-5">
+    <div class="col">
+    <%= image_tag category.icon, style: 'height: 60px;', class: 'mx-3' if category.icon.attached? %>
 
-  <p>
-    <% if category.icon.attached? %>
-    <%= image_tag category.icon.variant(resize: "100x100") %>
-    <% else %>
-      <span>No Icon Available</span>
-    <% end %>
-  </p>
-
-  <p class= "text-secondary">
+  </div>
+  <p class="font-medium text-gray-500 text-xl mx-3 ">
     <%= category.name %>
   </p>
-
-  <p class= "text-dark">
-    <%= number_to_currency(category.money_transactions.sum(:amount), unit: '$') %>
+   <p class="text-center font-bold text-xl  ml-auto <%= over_budget ? 'text-red-500' : 'text-black' %>">
+    <%=  number_to_currency(category.payments.sum(:amount), unit: '$') %>
   </p>
-  </div>
-
 </div>
-<% end %>

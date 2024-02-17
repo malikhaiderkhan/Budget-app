@@ -1,9 +1,12 @@
-<div class="d-flex flex-column min-vh-100">
-<div class="flex-grow-1">
-<h1 class="text-center mt-5 text-gray">Budget App</h1>
-</div>
-<div class="text-center mb-5">
-  <%= link_to 'LOG IN', new_user_session_path, class: 'btn btn-primary', style:'width: 100%; display:block;', role: 'button' %>
-  <%= link_to 'SIGN UP', new_user_registration_path, class: 'btn btn-light', style:'width: 100%; display:block;', role: 'button'  %>
-</div>
+<div class="flex h-screen m-4">
+  <div class="lg:w-1/4 lg:mx-auto w-full flex flex-col justify-between lg:h-5/6 h-full">
+    <div class="flex items-center justify-center h-full">
+      <%= image_tag('logo.PNG', width: '200', height: '100', alt: "logo") %>  
+    </div>
+    <div class="">
+        <%= link_to 'LOG IN', new_user_session_path, class: 'bg-sky-700  text-white text-center p-3 hover:bg-sky-800', style: 'width: 100%; display: block;' %>
+      <br>
+      <%= link_to 'SIGN UP', new_user_registration_path, class: 'text-gray-400 text-center hover:text-gray-500', style: 'width: 100%; display: block;'  %>
+    </div>
+  </div>
 </div>

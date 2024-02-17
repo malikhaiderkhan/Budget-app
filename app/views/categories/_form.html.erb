@@ -1,9 +1,8 @@
-<div class="col-lg-6 col-md-12 mx-auto flex flex-column p-2 h-100">
+
+<div class="lg:w-2/5  w-100 lg:mx-auto flex flex-col border p-2 h-5/6 ">
 <%= form_with(model: category) do |form| %>
   <% if category.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(category.errors.count, "error") %> prohibited this category from being saved:</h2>
-
       <ul>
         <% category.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -13,16 +12,24 @@
   <% end %>
 
   <div>
-    <%= form.text_field :name, placeholder: "Name", required: true, class: "form-control w-100 rounded-md p-3 border focus:outline-none mt-4" %>
+ 
+    <%= form.text_field :name,  class:"w-full rounded-md p-3 focus:outline-none border mt-4", placeholder: "Name", required: true  %>
   </div>
 
   <div>
-    <%= form.label :icon, style: "display: block", class: "mx-3 pt-3 font-weight-medium fs-5" %>
-    <%= form.file_field :icon, required: true, class:"w-100 rounded-md p-3 focus-outline-none" %>
+    <%= form.label :icon, style: "display: block", class: 'mx-3 pt-3 font-medium text-lg' %>
+    <%= form.file_field :icon, style: "display: block",  class:"w-full rounded-md p-3 focus:outline-none", required: true  %>
+
   </div>
 
+
   <div>
-    <%= form.submit "Save", class: 'bg-primary text-white text-center w-100 p-2 rounded mt-4' %>
+    <%= form.submit "Save", class: 'bg-sky-700  text-white text-center w-full p-2 hover:bg-sky-800 rounded my-4 ' %>
+    
+  </div>
+  <div class="text-center">
+  <%= link_to "Back to categories", categories_path, class: "bg-white-700  text-gray-400 text-center w-full p-3  rounded my-4 " %>
   </div>
 <% end %>
+
 </div>

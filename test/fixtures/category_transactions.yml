@@ -1,9 +1,0 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  category: one
-  money_transaction: one
-
-two:
-  category: two
-  money_transaction: two

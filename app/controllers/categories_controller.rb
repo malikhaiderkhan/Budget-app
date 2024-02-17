@@ -1,53 +1,40 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: %i[show edit update destroy]
+  before_action :authenticate_user!
 
   # GET /categories or /categories.json
   def index
-    @categories = current_user.categories.includes(:money_transactions)
-  end
+    @categories = Category.where(user_id: current_user.id)
+    @budget = 1000
+    @user = current_user
+    @total = @user.payments.sum(:amount)
+    return unless @total > @budget
 
-  # GET /categories/1 or /categories/1.json
-  def show; end
+    @over_budget = true
+    @diffrence = @total - @budget
+  end
 
   # GET /categories/new
   def new
-    @category = current_user.categories.new
+    @category = Category.new
   end
-
-  # GET /categories/1/edit
-  def edit; end
 
   # POST /categories or /categories.json
   def create
-    @category = current_user.categories.build(category_params)
-
+    @category = Category.new(category_params)
+    @category.user = current_user
     respond_to do |format|
       if @category.save
         format.html { redirect_to categories_url, notice: 'Category was successfully created.' }
-        format.json { render :show, status: :created, location: @category }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @category.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PATCH/PUT /categories/1 or /categories/1.json
-  def update
-    respond_to do |format|
-      if @category.update(category_params)
-        format.html { redirect_to category_url(@category), notice: 'Category was successfully updated.' }
-        format.json { render :show, status: :ok, location: @category }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @category.errors, status: :unprocessable_entity }
       end
     end
   end
 
   # DELETE /categories/1 or /categories/1.json
   def destroy
-    @category.destroy!
+    @category.destroy
 
     respond_to do |format|
       format.html { redirect_to categories_url, notice: 'Category was successfully destroyed.' }

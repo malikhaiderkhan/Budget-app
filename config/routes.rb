@@ -1,10 +1,8 @@
 Rails.application.routes.draw do
-  get '/sign_out_user', to: 'users#sign_out_user', as: 'sign_out_user'
-  resources :category_transactions
-  resources :money_transactions
-  resources :categories
+  resources :categories,  only: [:new, :create, :index] do
+    resources :payments, only: [:index, :new, :create]
+  end
   get 'home/index'
   devise_for :users
-
-  root "home#index"
+  root 'home#index'
 end
