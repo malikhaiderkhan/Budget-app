@@ -20,7 +20,10 @@
    <%= form.number_field :amount, class: "w-full rounded-md p-3 focus:outline-none border mt-4", placeholder: "$ Amount", required: true, step: "0.01" %>
   </div>
 
-
+  <div>
+  <%= form.collection_select(:category_id, Category.all, :id, :name, { prompt: 'Select a category' }, { class: 'w-full rounded-md p-3 focus:outline-none border mt-4' }) %>
+  <!-- Adjust the above line based on your actual Category model and attribute names -->
+  </div>
 
   <div>
     <%= form.submit "Save",  class: 'mb-3 bg-sky-700  text-white text-center w-full p-2 hover:bg-sky-800 rounded my-4 ' %>
