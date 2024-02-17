@@ -1,0 +1,27 @@
+<div class="col-lg-6 col-md-12 mx-auto flex flex-column p-2 h-100">
+<%= form_with(model: money_transaction) do |form| %>
+  <% if money_transaction.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(money_transaction.errors.count, "error") %> prohibited this money_transaction from being saved:</h2>
+
+      <ul>
+        <% money_transaction.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.text_field :name, placeholder: "Name", required: true, class: "form-control w-100 rounded-md p-3 border focus:outline-none mt-4" %>
+  </div>
+
+  <div>
+    <%= form.text_field :amount, placeholder: "Amount", required: true, class: "form-control w-100 rounded-md p-3 border focus:outline-none mt-4" %>
+  </div>
+
+  <div>
+    <%= form.submit "Save", class: 'bg-primary text-white text-center w-100 p-2 rounded mt-4' %>
+  </div>
+<% end %>
+</div>

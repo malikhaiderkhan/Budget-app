@@ -1,0 +1,16 @@
+<div id="<%= dom_id money_transaction %>", class="border p-3 mb-3">
+<div class="d-flex justify-content-between">
+  <p class="text-secondary">
+    <%= money_transaction.name %>
+  </p>
+
+  <p>
+    <strong>$</strong>
+    <%= money_transaction.amount %>
+  </p>
+  </div>
+  <p class= "text-secondary">
+      <%= money_transaction.created_at.strftime('%B %d, %Y %I:%M %p') %>
+</p>
+
+</div>
