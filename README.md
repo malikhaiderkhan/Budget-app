@@ -42,7 +42,7 @@
 ## 🚀 Live Demo <a name="live-demo"></a>
 
 - [Live Demo Link](https://budgetly-ub3z.onrender.com)
-- [Presentation Link]()
+- [Presentation Link](https://www.loom.com/share/5ee561243c3549bc8c12a7dbc200c8c9?sid=569d50ef-dc05-43d0-8cbd-26f770fa3576)
 
 <!-- GETTING STARTED -->
 
